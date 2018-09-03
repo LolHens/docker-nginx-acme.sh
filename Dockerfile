@@ -13,7 +13,13 @@ RUN apt-get update \
       cron \
       curl \
       nano \
- && curl https://raw.githubusercontent.com/Neilpang/get.acme.sh/master/get.sh | sh \
+ && echo "cron" > "/etc/my_init.d/cron"
+ && curl "https://raw.githubusercontent.com/Neilpang/get.acme.sh/master/get.sh" | sh \
  && cleanimage
 
-CMD ["sh","-c", "crond -f && nginx -g 'daemon off;'"]
+RUN curl -Lo "/usr/local/bin/my_init" "https://raw.githubusercontent.com/LolHens/docker-tools/master/bin/my_init" \
+ && chmod +x "/usr/local/bin/my_init" \
+ && mkdir "/etc/my_init.d"
+
+
+ENTRYPOINT ["my_init"]
