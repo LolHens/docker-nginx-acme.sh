@@ -8,6 +8,7 @@ RUN chmod +x "/usr/local/bin/cleanimage"
 RUN apt-get update \
  && apt-get dist-upgrade -y \
  && apt-get install -y \
+      apache2-utils \
       apt-transport-https \
       ca-certificates \
       cron \
