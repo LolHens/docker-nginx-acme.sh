@@ -13,7 +13,7 @@ RUN apt-get update \
       cron \
       curl \
       nano \
- && echo "cron" > "/etc/my_init.d/cron"
+ && ln -s "cron" "/etc/my_init.d/cron" \
  && curl "https://raw.githubusercontent.com/Neilpang/get.acme.sh/master/get.sh" | sh \
  && cleanimage
 
