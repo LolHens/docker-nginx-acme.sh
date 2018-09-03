@@ -13,5 +13,7 @@ RUN apt-get update \
       cron \
       curl \
       nano \
- && curl https://get.acme.sh | sh \
+ && curl https://raw.githubusercontent.com/Neilpang/get.acme.sh/master/get.sh | sh \
  && cleanimage
+
+CMD ["sh","-c", "crond -f && nginx -g 'daemon off;'"]
