@@ -10,6 +10,7 @@ RUN apt-get update \
  && apt-get install -y \
       apt-transport-https \
       ca-certificates \
+      cron \
       curl \
       nano \
  && curl https://get.acme.sh | sh \
