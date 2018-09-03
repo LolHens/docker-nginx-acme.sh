@@ -13,6 +13,7 @@ RUN apt-get update \
       cron \
       curl \
       nano \
+      procps \
  && cleanimage
 
 RUN curl "https://raw.githubusercontent.com/Neilpang/get.acme.sh/master/get.sh" | sh \
@@ -22,7 +23,8 @@ RUN curl -Lo "/usr/local/bin/my_init" "https://raw.githubusercontent.com/LolHens
  && chmod +x "/usr/local/bin/my_init" \
  && mkdir "/etc/my_init.d"
 
-RUN ln -s "/usr/sbin/cron" "/etc/my_init.d/cron"
+RUN echo "/etc/init.d/cron start" > "/etc/my_init.d/cron" \
+ && chmod +x "/etc/my_init.d/cron"
 
 ENTRYPOINT ["my_init"]
 CMD ["nginx", "-g", "daemon off;"]
