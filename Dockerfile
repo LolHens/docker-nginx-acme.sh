@@ -12,5 +12,5 @@ RUN apt-get update \
       ca-certificates \
       curl \
       nano \
- && wget -O -  https://get.acme.sh | sh \
+ && curl https://get.acme.sh | sh \
  && cleanimage
