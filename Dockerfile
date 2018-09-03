@@ -16,10 +16,10 @@ RUN apt-get update \
       procps \
  && cleanimage
 
-ENV LE_WORKING_DIR=/acme.sh
+ENV LE_WORKING_DIR=/etc/acme.sh
 ENV LE_CONFIG_HOME=/acmecerts
 RUN curl "https://raw.githubusercontent.com/Neilpang/get.acme.sh/master/get.sh" | sh \
- && ln -s "~/.acme.sh/acme.sh" "/usr/local/bin/acme.sh" \
+ && ln -s "$LE_WORKING_DIR/acme.sh" "/usr/local/bin/acme.sh" \
  && cleanimage
 
 RUN curl -Lo "/usr/local/bin/my_init" "https://raw.githubusercontent.com/LolHens/docker-tools/master/bin/my_init" \
