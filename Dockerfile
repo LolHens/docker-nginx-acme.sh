@@ -13,5 +13,5 @@ RUN apt-get update \
       cron \
       curl \
       nano \
- && curl https://get.acme.sh | sh \
+ && curl https://raw.githubusercontent.com/Neilpang/acme.sh/master/acme.sh | sh -s -- --install \
  && cleanimage
