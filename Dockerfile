@@ -13,7 +13,6 @@ RUN apt-get update \
       cron \
       curl \
       nano \
- && ln -s "/usr/sbin/cron" "/etc/my_init.d/cron" \
  && cleanimage
 
 RUN curl "https://raw.githubusercontent.com/Neilpang/get.acme.sh/master/get.sh" | sh \
@@ -23,5 +22,6 @@ RUN curl -Lo "/usr/local/bin/my_init" "https://raw.githubusercontent.com/LolHens
  && chmod +x "/usr/local/bin/my_init" \
  && mkdir "/etc/my_init.d"
 
+RUN ln -s "/usr/sbin/cron" "/etc/my_init.d/cron"
 
 ENTRYPOINT ["my_init"]
