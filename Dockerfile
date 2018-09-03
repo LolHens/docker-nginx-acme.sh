@@ -25,3 +25,4 @@ RUN curl -Lo "/usr/local/bin/my_init" "https://raw.githubusercontent.com/LolHens
 RUN ln -s "/usr/sbin/cron" "/etc/my_init.d/cron"
 
 ENTRYPOINT ["my_init"]
+CMD ["nginx", "-g", "daemon off;"]
