@@ -15,6 +15,7 @@ RUN apt-get update \
       curl \
       nano \
       procps \
+      socat \
  && cleanimage
 
 ENV LE_WORKING_DIR=/etc/acme.sh
