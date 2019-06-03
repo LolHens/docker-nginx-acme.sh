@@ -20,7 +20,7 @@ RUN apt-get update \
 
 ENV LE_WORKING_DIR=/etc/acme.sh
 ENV LE_CONFIG_HOME=/acmecerts
-RUN curl "https://raw.githubusercontent.com/Neilpang/get.acme.sh/master/get.sh" | sh \
+RUN curl "https://raw.githubusercontent.com/Neilpang/get.acme.sh/master/index.html" | sh \
  && ln -s "$LE_WORKING_DIR/acme.sh" "/usr/local/bin/acme.sh" \
  && cleanimage
 
